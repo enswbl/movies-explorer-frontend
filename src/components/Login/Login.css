@@ -1,0 +1,12 @@
+.login__button {
+    margin: 179px auto 0;
+    padding: 13px 178px 15px 176px;
+}
+
+@media (max-width: 460px) {
+
+    .login__button {
+        margin: 282px 0 0;
+        padding: 15px 0 15px 0;
+    }
+}
