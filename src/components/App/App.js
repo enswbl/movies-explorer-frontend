@@ -5,7 +5,22 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 import NotFoundError from "../NotFoundError/NotFoundError";
 import Profile from "../Profile/Profile";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 import {CurrentUserContext} from '../../contexts/CurrentUserContext'
+
+
+import Promo from "../Header/Header";
+import NavTab from "../Header/Header";
+import AboutProject from "../Header/Header";
+import Techs from "../Header/Header";
+import AboutMe from "../Header/Header";
+import Portfolio from "../Header/Header";
+import SearchForm from "../Header/Header";
+import FilterCheckbox from "../Header/Header";
+import Preloader from "../Header/Header";
+import MoviesCardList from "../Header/Header";
+import MoviesCard from "../Header/Header";
 
 function App() {
 
@@ -14,6 +29,10 @@ function App() {
         email: '',
     });
 
+    const [userData, setUserData] = React.useState({})
+
+
+    const [loggedIn, setLoggedIn] = React.useState()
 
     /*    const handleLogin = ({email, password}) => {
             return Auth.authorize({email, password})
@@ -54,11 +73,39 @@ function App() {
     return ((
         <>
             <CurrentUserContext.Provider value={currentUser}>
-                {/*<Header/>*/}
+
+                <Header userData={userData}/>
 
                 <main>
 
                     <Switch>
+
+                        <Route path='/'>
+                            <Promo/>
+                            <NavTab/>
+                            <AboutProject/>
+                            <Techs/>
+                            <AboutMe/>
+                            <Portfolio/>
+                        </Route>
+
+                        <Route path='/movies'>
+                            <SearchForm/>
+                            <FilterCheckbox/>
+                            <Preloader/>
+
+                            <MoviesCardList/>
+                            <MoviesCard/>
+                        </Route>
+
+                        <Route path='/saved-movies'>
+                            <MoviesCardList/>
+                            <MoviesCard/>
+                        </Route>
+
+                        <Route path='/profile'>
+                            <Profile/>
+                        </Route>
 
                         <Route path='/sign-up'>
                             <Register/> {/*handleRegister={handleRegister}*/}
@@ -68,16 +115,17 @@ function App() {
                             <Login/> {/*handleLogin={handleLogin}*/}
                         </Route>
 
-                        <Route path='/profile'>
-                            <Profile/>
-                        </Route>
-
-                        <Route path='/'>
+                        <Route path='/404'>
                             <NotFoundError/>
                         </Route>
 
                     </Switch>
+
                 </main>
+
+                {loggedIn && <Footer/>}
+
+
             </CurrentUserContext.Provider>
         </>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {Link, useHistory, withRouter} from 'react-router-dom';
 
 const Profile = ({handleEdit}) => {
     const [userData, setUserData] = React.useState({name: '', email: ''});
@@ -16,6 +16,13 @@ const Profile = ({handleEdit}) => {
         e.preventDefault();
         handleEdit(userData)
 
+    }
+
+    const history = useHistory();
+
+    const signOut = () => {
+        localStorage.removeItem('token');
+        history.push('/sign-up');
     }
 
     return ((
@@ -52,7 +59,7 @@ const Profile = ({handleEdit}) => {
                 </div>
 
                 <button className="profile__edit">Редактировать</button>
-                <Link to="/sign-in" className="profile__logout">Выйти из аккаунта</Link>
+                <Link to="/sign-in" className="profile__logout" onClick={signOut}>Выйти из аккаунта</Link>
 
             </form>
         </>
