@@ -33,7 +33,7 @@ const Login = ({handleLogin}) => {
                        className="register__input"
                        type='email'
                        minLength='2'
-                       maxLength='30'
+                       maxLength='40'
                     /*autoComplete='off'*/
                        required/>
                 <span className='register__error'>Что-то пошло не так...</span>
@@ -46,12 +46,12 @@ const Login = ({handleLogin}) => {
                        className="register__input"
                        type='password'
                        minLength='2'
-                       maxLength='30'
+                       maxLength='40'
                     /*autoComplete='off'*/
                        required/>
                 <span className='register__error'/>
 
-                <button type="submit" className="register__button login__button">Войти</button>
+                <button type="submit" className="login__button">Войти</button>
 
                 <div className='register__container'>
                     <label className='register__link register__link_label'>Ещё не зарегистрированы?</label>

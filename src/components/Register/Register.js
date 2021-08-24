@@ -33,7 +33,7 @@ function Register({handleRegister}) {
                    className="register__input"
                    type='text'
                    minLength='2'
-                   maxLength='30'
+                   maxLength='40'
                 /*autoComplete='off'*/
                    required/>
 
@@ -47,7 +47,7 @@ function Register({handleRegister}) {
                    className="register__input"
                    type='email'
                    minLength='2'
-                   maxLength='30'
+                   maxLength='40'
                 /*autoComplete='off'*/
                    required/>
             <span className='register__error'>Что-то пошло не так...</span>

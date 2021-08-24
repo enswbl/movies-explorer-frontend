@@ -1,0 +1,152 @@
+.profile {
+    max-width: 410px;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 460px) {
+
+    .profile {
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .profile {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .profile {
+        max-width: 260px;
+    }
+}
+
+.profile__title {
+    margin: 74px auto 123px;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 500;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+
+    .profile__title {
+        margin: 236px auto 96px;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .profile__title {
+        margin: 70px auto 80px;
+    }
+}
+
+.profile__container {
+    display: grid;
+    grid-template-columns: 170px 240px;
+    grid-template-rows: 32px 32px;
+    margin-bottom: 220px;
+}
+
+@media (max-width: 768px) {
+
+    .profile__container {
+        margin-bottom: 210px;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .profile__container {
+        grid-template-columns: 150px 210px;
+        margin-bottom: 379px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .profile__container {
+        grid-template-columns: 130px 190px;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .profile__container {
+        grid-template-columns: 110px 150px;
+    }
+}
+
+.profile__label {
+    padding-top: 16px;
+    font-size: 11px;
+    line-height: 13px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.profile__label:first-child {
+    padding-top: 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.profile__input {
+    font-size: 11px;
+    line-height: 13px;
+    text-align: right;
+    padding-top: 17px;
+    border: none;
+    background-color: #ffffff;
+}
+
+.profile__input:nth-child(2) {
+    padding-top: 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.profile__edit {
+    margin-bottom: 16px;
+    border: none;
+    background-color: #ffffff;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #000000;
+}
+
+.profile__logout {
+    margin-bottom: 70px;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+    text-align: center;
+    color: #000000;
+    text-decoration: inherit;
+}
+
+@media (max-width: 768px) {
+
+    .profile__logout {
+        margin-bottom: 269px;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .profile__logout {
+        margin-bottom: 40px;
+    }
+}
+
