@@ -7,20 +7,18 @@ import NotFoundError from "../NotFoundError/NotFoundError";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import Promo from "../Promo/Promo";
+/*import NavTab from "../NavTab/NavTab";
+import AboutProject from "../AboutProject/AboutProject";
+import Techs from "../Techs/Techs";
+import AboutMe from "../AboutMe/AboutMe";
+import Portfolio from "../Portfolio/Portfolio";
+import SearchForm from "../SearchForm/SearchForm";
+import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
+import Preloader from "../Preloader/Preloader";
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import MoviesCard from "../MoviesCard/MoviesCard";*/
 import {CurrentUserContext} from '../../contexts/CurrentUserContext'
-
-
-import Promo from "../Header/Header";
-import NavTab from "../Header/Header";
-import AboutProject from "../Header/Header";
-import Techs from "../Header/Header";
-import AboutMe from "../Header/Header";
-import Portfolio from "../Header/Header";
-import SearchForm from "../Header/Header";
-import FilterCheckbox from "../Header/Header";
-import Preloader from "../Header/Header";
-import MoviesCardList from "../Header/Header";
-import MoviesCard from "../Header/Header";
 
 function App() {
 
@@ -74,33 +72,36 @@ function App() {
         <>
             <CurrentUserContext.Provider value={currentUser}>
 
+
                 <Header userData={userData}/>
+
 
                 <main>
 
                     <Switch>
 
+
                         <Route path='/'>
-                            <Promo/>
-                            <NavTab/>
+                           <Promo/>
+{/*                            <NavTab/>
                             <AboutProject/>
                             <Techs/>
                             <AboutMe/>
-                            <Portfolio/>
+                            <Portfolio/>*/}
                         </Route>
 
                         <Route path='/movies'>
-                            <SearchForm/>
+  {/*                          <SearchForm/>
                             <FilterCheckbox/>
                             <Preloader/>
 
                             <MoviesCardList/>
-                            <MoviesCard/>
+                            <MoviesCard/>*/}
                         </Route>
 
                         <Route path='/saved-movies'>
-                            <MoviesCardList/>
-                            <MoviesCard/>
+{/*                            <MoviesCardList/>
+                            <MoviesCard/>*/}
                         </Route>
 
                         <Route path='/profile'>

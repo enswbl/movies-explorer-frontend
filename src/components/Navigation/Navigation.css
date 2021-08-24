@@ -1,0 +1,7 @@
+.navigation {
+    visibility: hidden;
+}
+
+.navigation_opened {
+    visibility: visible;
+}

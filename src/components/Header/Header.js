@@ -1,13 +1,26 @@
 import React from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import logo from '../../images/logo.svg'
+import useWindowDimensions from '../../utils/getCurrentWidth'
 import account from '../../images/account.svg'
-
+import menu from '../../images/menu.svg'
+import Navigation from "../Navigation/Navigation";
 
 const Header = () => {
 
+
+    const [isOpen, setIsOpen] = React.useState({isOpen: false})
+
+
+    const useSetIsOpen = () => {
+        setIsOpen({isOpen: true})
+    }
+
+
     const location = useLocation();
     const currentPath = location.pathname;
+
+    const {width} = useWindowDimensions();
 
     return ((
         <header className='header'>
@@ -21,20 +34,40 @@ const Header = () => {
                 </>
                 }
 
-                {currentPath === '/movies' || currentPath === '/saved-movies' || currentPath === '/profile' &&
-                <>
-                    <a href='/'><img src={logo} alt='Логотип' className='header__logo'/></a>
-                    <Link className='header__button' to="/movies">Фильмы</Link>
-                    <Link className='header__button' to="/saved-movies">Сохранённые фильмы</Link>
-                    <Link className='header__button' to="/profile">Аккаунт</Link>
-                    <img src={account} alt="Аккаунт"/>
-                </>
+                {(currentPath === '/movies' || currentPath === '/saved-movies' || currentPath === '/profile') &&
+
+                (<>
+
+                    {(width <= 768) &&
+
+                    <>
+                        <a href='/'><img src={logo} alt='Логотип' className='header__logo'/></a>
+                        <button onClick={useSetIsOpen}><img src={menu} alt=''/></button>
+                        <div className={`${isOpen ? 'navigation_opened' : ''}`}>
+                            <Navigation isOpen={isOpen.isOpen}/>
+                        </div>
+                    </>
+                    }
+
+                    {(width > 768) &&
+                    <>
+                        <a href='/'><img src={logo} alt='Логотип' className='header__logo'/></a>
+                        <Link className='header__button' to="/movies">Фильмы</Link>
+                        <Link className='header__button' to="/saved-movies">Сохранённые фильмы</Link>
+                        <Link className='header__button' to="/profile">Аккаунт</Link>
+                        <img src={account} alt="Аккаунт"/>
+                    </>
+                    }
+                </>)
+
                 }
 
                 {currentPath === '/sign-up' || currentPath === '/sign-in' || currentPath === '/404' &&
                 <>
                 </>
                 }
+
+
             </div>
         </header>
     ));
