@@ -30,7 +30,7 @@ function App() {
     const [userData, setUserData] = React.useState({})
 
 
-    const [loggedIn, setLoggedIn] = React.useState()
+    const [loggedIn, setLoggedIn] = React.useState(true)
 
     /*    const handleLogin = ({email, password}) => {
             return Auth.authorize({email, password})
