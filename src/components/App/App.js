@@ -8,13 +8,12 @@ import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Promo from "../Promo/Promo";
+import SearchForm from "../SearchForm/SearchForm";
 /*import NavTab from "../NavTab/NavTab";
 import AboutProject from "../AboutProject/AboutProject";
 import Techs from "../Techs/Techs";
 import AboutMe from "../AboutMe/AboutMe";
 import Portfolio from "../Portfolio/Portfolio";
-import SearchForm from "../SearchForm/SearchForm";
-import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 import Preloader from "../Preloader/Preloader";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import MoviesCard from "../MoviesCard/MoviesCard";*/
@@ -31,6 +30,16 @@ function App() {
 
 
     const [loggedIn, setLoggedIn] = React.useState(true)
+
+    const [isOpen, setIsOpen] = React.useState({isOpen: false})
+
+    const useSetIsOpen = () => {
+        setIsOpen({isOpen: true})
+    }
+
+    const useSetIsClose = () => {
+        setIsOpen({isOpen: false})
+    }
 
     /*    const handleLogin = ({email, password}) => {
             return Auth.authorize({email, password})
@@ -73,26 +82,33 @@ function App() {
             <CurrentUserContext.Provider value={currentUser}>
 
 
-                <Header userData={userData}/>
+                <Header isOpen={isOpen.isOpen} useSetIsOpen={useSetIsOpen} useSetIsClose={useSetIsClose}/>
 
 
                 <main>
 
                     <Switch>
 
+                        <Route path='/sign-up'>
+                            <Register/> {/*handleRegister={handleRegister}*/}
+                        </Route>
+
+                        <SearchForm/>
+                        {/*                        <FilterCheckbox/>*/}
+
 
                         <Route path='/'>
-                           <Promo/>
-{/*                            <NavTab/>
+                            <Promo/>
+                            {/*                            <NavTab/>
                             <AboutProject/>
                             <Techs/>
                             <AboutMe/>
                             <Portfolio/>*/}
                         </Route>
 
+
                         <Route path='/movies'>
-  {/*                          <SearchForm/>
-                            <FilterCheckbox/>
+                            {/*
                             <Preloader/>
 
                             <MoviesCardList/>
@@ -100,7 +116,7 @@ function App() {
                         </Route>
 
                         <Route path='/saved-movies'>
-{/*                            <MoviesCardList/>
+                            {/*                            <MoviesCardList/>
                             <MoviesCard/>*/}
                         </Route>
 
@@ -108,9 +124,6 @@ function App() {
                             <Profile/>
                         </Route>
 
-                        <Route path='/sign-up'>
-                            <Register/> {/*handleRegister={handleRegister}*/}
-                        </Route>
 
                         <Route path='/sign-in'>
                             <Login/> {/*handleLogin={handleLogin}*/}
