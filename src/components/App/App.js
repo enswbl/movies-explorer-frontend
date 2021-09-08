@@ -9,14 +9,12 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Promo from "../Promo/Promo";
 import SearchForm from "../SearchForm/SearchForm";
-/*import NavTab from "../NavTab/NavTab";
 import AboutProject from "../AboutProject/AboutProject";
 import Techs from "../Techs/Techs";
 import AboutMe from "../AboutMe/AboutMe";
 import Portfolio from "../Portfolio/Portfolio";
-import Preloader from "../Preloader/Preloader";
-import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import MoviesCard from "../MoviesCard/MoviesCard";*/
+/*import NavTab from "../NavTab/NavTab";
+import Preloader from "../Preloader/Preloader";;*/
 import {CurrentUserContext} from '../../contexts/CurrentUserContext'
 
 function App() {
@@ -80,43 +78,35 @@ function App() {
     return ((
         <>
             <CurrentUserContext.Provider value={currentUser}>
-
+                {/* <Preloader/> */}
 
                 <Header isOpen={isOpen.isOpen} useSetIsOpen={useSetIsOpen} useSetIsClose={useSetIsClose}/>
-
 
                 <main>
 
                     <Switch>
 
-                        <Route path='/sign-up'>
-                            <Register/> {/*handleRegister={handleRegister}*/}
-                        </Route>
-
-                        <SearchForm/>
-                        {/*                        <FilterCheckbox/>*/}
-
-
-                        <Route path='/'>
+                        <Route
+                            exact
+                            path='/'>
                             <Promo/>
-                            {/*                            <NavTab/>
+                            {/* <NavTab/> TODO, links*/}
                             <AboutProject/>
                             <Techs/>
                             <AboutMe/>
-                            <Portfolio/>*/}
+                            <Portfolio/>
                         </Route>
 
-
                         <Route path='/movies'>
-                            {/*
-                            <Preloader/>
-
+                            {/*                               <FilterCheckbox/>
                             <MoviesCardList/>
                             <MoviesCard/>*/}
                         </Route>
 
                         <Route path='/saved-movies'>
-                            {/*                            <MoviesCardList/>
+                            <SearchForm/>
+                            {/*                               <FilterCheckbox/>
+                            <MoviesCardList/>
                             <MoviesCard/>*/}
                         </Route>
 
@@ -124,9 +114,12 @@ function App() {
                             <Profile/>
                         </Route>
 
+                        <Route path='/sign-up'>
+                            <Register/>
+                        </Route>
 
                         <Route path='/sign-in'>
-                            <Login/> {/*handleLogin={handleLogin}*/}
+                            <Login/>
                         </Route>
 
                         <Route path='/404'>
@@ -138,7 +131,6 @@ function App() {
                 </main>
 
                 {loggedIn && <Footer/>}
-
 
             </CurrentUserContext.Provider>
         </>

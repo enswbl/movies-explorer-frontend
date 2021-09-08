@@ -20,5 +20,12 @@
   src: url("../fonts/Inter-Black.woff2") format("woff2"),
   url("../fonts/Inter-Black.woff") format("woff");
 
+}
+
+@font-face {
+  font-family: 'Suisse';
+  font-weight: 400;
+  src: url("../fonts/SuisseIntl-Regular.woff2") format("woff2"),
+  url("../fonts/SuisseIntl-Regular.woff") format("woff");
 
 }
