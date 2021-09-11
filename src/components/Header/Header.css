@@ -1,4 +1,4 @@
-.header { /*TODO*/
+.header { 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,7 +63,6 @@
 .header__button_menu {
     border: none;
     background-color: #ffffff;
-
     height: 44px;
     width: 40px;
     padding: 0;
@@ -79,19 +78,15 @@
     border: none;
     background-color: #ffffff;
     margin: 23px 23px 78px auto;
-
     width: 22px;
     height: 22px;
     padding: 0;
-
-
 }
 
 .header__img_close {
     width: 22px;
     height: 22px;
 }
-
 
 .header__background {
     position: absolute;
@@ -101,21 +96,16 @@
     height: 100%;
     z-index: 2;
     background: rgba(0, 0, 0, 0.3);
-    /*    background-color: #000000;*/
 }
 
 .header__menu {
     max-width: 520px;
     width: 100%;
     height: 100vh;
-
     display: flex;
     flex-direction: column;
-
-
     background-color: #ffffff;
     z-index: 3;
-
     position: absolute;
     top: 0;
     right: 0;

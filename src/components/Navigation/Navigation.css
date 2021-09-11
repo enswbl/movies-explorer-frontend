@@ -1,4 +1,4 @@
-.navigation { /*TODO*/
+.navigation { 
     visibility: hidden;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,6 @@
     margin-top: 28px;
     color: #000000;
     text-decoration: inherit;
-
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
@@ -34,7 +33,6 @@
 
 .header__account_nav {
     margin-top: auto;
-
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;

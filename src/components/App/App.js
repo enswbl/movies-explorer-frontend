@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {Route, Switch} from 'react-router-dom';
 import './App.css';
 import Register from "../Register/Register";
@@ -13,11 +13,16 @@ import AboutProject from "../AboutProject/AboutProject";
 import Techs from "../Techs/Techs";
 import AboutMe from "../AboutMe/AboutMe";
 import Portfolio from "../Portfolio/Portfolio";
-/*import NavTab from "../NavTab/NavTab";
+import NavTab from "../NavTab/NavTab";
+/*
 import Preloader from "../Preloader/Preloader";;*/
 import {CurrentUserContext} from '../../contexts/CurrentUserContext'
 
 function App() {
+
+    const section1Ref = useRef(null);
+    const section2Ref = useRef(null);
+    const section3Ref = useRef(null);
 
     const [currentUser, setCurrentUserState] = React.useState({
         name: '',
@@ -90,14 +95,15 @@ function App() {
                             exact
                             path='/'>
                             <Promo/>
-                            {/* <NavTab/> TODO, links*/}
-                            <AboutProject/>
-                            <Techs/>
-                            <AboutMe/>
+                            <NavTab section1Ref={section1Ref} section2Ref={section2Ref} section3Ref={section3Ref} />
+                            <AboutProject myRef={section1Ref}/>
+                            <Techs myRef={section2Ref}/>
+                            <AboutMe myRef={section3Ref}/>
                             <Portfolio/>
                         </Route>
 
                         <Route path='/movies'>
+                        <SearchForm/>
                             {/*                               <FilterCheckbox/>
                             <MoviesCardList/>
                             <MoviesCard/>*/}

@@ -1,11 +1,11 @@
 import React from 'react';
 import plvn from "../../images/plvn.jpg";
 
-const AboutMe = () => {
+const AboutMe = ({myRef}) => {
 
     return ((
         <>
-            <div className='about-me'>
+            <div className='about-me' ref={myRef}>
 
                 <h2 className="about-project__title">Студент</h2>
 

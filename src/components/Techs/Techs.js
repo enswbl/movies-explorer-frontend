@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Techs = () => {
+const Techs = ({myRef}) => {
 
 
     return ((
         <>
-            <div className="promo"> {/* TODO*/}
+            <div className="promo" ref={myRef}> {/* TODO*/}
 
                 <h2 className="about-project__title">Технологии</h2>
 

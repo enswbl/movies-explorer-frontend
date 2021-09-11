@@ -17,7 +17,6 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
     return ((
         <header className='header'>
 
-
             {currentPath === '/' &&
             <>
                 <a href='/'><img src={logo} alt='Логотип' className='header__logo'/></a>

@@ -43,9 +43,8 @@
     display: grid;
 
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     grid-column-gap: 40px;
-    grid-row-gap: 26px;
 
     justify-content: center;
     align-items: center;
@@ -57,16 +56,15 @@
 
     .about-project__description {
         grid-column-gap: 30px;
-        grid-row-gap: 22px;
         margin: 0 auto 94px 0;
     }
 }
 
 @media (max-width: 460px) {
 
-    .about-project__description { /*TODO, mobile*/
+    .about-project__description {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         grid-row-gap: 56px;
 
         margin: 0 auto 60px;
@@ -78,7 +76,14 @@
     line-height: 24px;
     font-weight: normal;
     letter-spacing: -0.04em;
-    margin: 0;
+    margin: 0 0 26px;
+}
+
+@media (max-width: 768px) {
+
+    .about-project__description-title {
+        margin: 0 0 22px;
+    }
 }
 
 @media (max-width: 460px) {
@@ -86,6 +91,7 @@
     .about-project__description-title {
         font-size: 18px;
         line-height: 22px;
+        margin: 0 0 16px;
     }
 }
 
