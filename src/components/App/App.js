@@ -14,6 +14,7 @@ import Techs from "../Techs/Techs";
 import AboutMe from "../AboutMe/AboutMe";
 import Portfolio from "../Portfolio/Portfolio";
 import NavTab from "../NavTab/NavTab";
+import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 /*
 import Preloader from "../Preloader/Preloader";;*/
 import {CurrentUserContext} from '../../contexts/CurrentUserContext'
@@ -104,14 +105,16 @@ function App() {
 
                         <Route path='/movies'>
                         <SearchForm/>
-                            {/*                               <FilterCheckbox/>
+                        <FilterCheckbox/>
+                            {/*                               
                             <MoviesCardList/>
                             <MoviesCard/>*/}
                         </Route>
 
                         <Route path='/saved-movies'>
                             <SearchForm/>
-                            {/*                               <FilterCheckbox/>
+                            <FilterCheckbox/>
+                            {/*                               
                             <MoviesCardList/>
                             <MoviesCard/>*/}
                         </Route>
