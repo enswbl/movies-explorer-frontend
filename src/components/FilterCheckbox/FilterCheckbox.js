@@ -4,9 +4,7 @@ const FilterCheckbox = () => {
 
     return ((
         <>
-            <div className="filter-checkbox">
 
-            </div>
         </>
 
     ));

@@ -1,4 +1,23 @@
-.about-me__container {
+.about-me {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 70px;
+    padding-right: 70px;
+}
 
+@media (max-width: 768px) {
+
+    .about-me {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .about-me {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
 }

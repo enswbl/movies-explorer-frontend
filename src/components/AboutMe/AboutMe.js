@@ -7,7 +7,7 @@ const AboutMe = ({myRef}) => {
         <>
             <div className='about-me' ref={myRef}>
 
-                <h2 className="about-project__title">Студент</h2>
+                <h2 className="techs__title">Студент</h2>
 
                 <div className="about-me__container">
 

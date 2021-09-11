@@ -5,22 +5,22 @@ const Techs = ({myRef}) => {
 
     return ((
         <>
-            <div className="promo" ref={myRef}> {/* TODO*/}
+            <div className="techs" ref={myRef}>
 
-                <h2 className="about-project__title">Технологии</h2>
+                <h2 className="techs__title">Технологии</h2>
 
-                <h1 className="promo__title">7 технологий</h1>
+                <h1 className="techs__subtitle">7 технологий</h1>
 
-                <p>На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
+                <p className="techs__paragraph">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
 
-                <nav className="promo__nav">
-                    <p className="promo__link">HTML</p>
-                    <p className="promo__link">CSS</p>
-                    <p className="promo__link">JS</p>
-                    <p className="promo__link">React</p>
-                    <p className="promo__link">Express.js</p>
-                    <p className="promo__link">mongoDB</p>
-                    <p className="promo__link">Git</p>
+                <nav className="techs__nav">
+                    <p className="techs__link">HTML</p>
+                    <p className="techs__link">CSS</p>
+                    <p className="techs__link">JS</p>
+                    <p className="techs__link">React</p>
+                    <p className="techs__link">Express.js</p>
+                    <p className="techs__link">mongoDB</p>
+                    <p className="techs__link">Git</p>
                 </nav>
 
             </div>
