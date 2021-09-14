@@ -22,7 +22,9 @@ function Register({handleRegister}) {
     return ((
 
         <form action='#' method='GET' onSubmit={handleSubmit} className="register">
-            <img src={Logo} alt='Логотип' className='register__logo'/>
+
+            <a href='/'><img src={Logo} alt='Логотип' className='register__logo'/></a>
+
             <h1 className='register__title'>Добро пожаловать!</h1>
 
             <label className='register__label'>Имя</label>
@@ -69,7 +71,7 @@ function Register({handleRegister}) {
 
             <div className='register__container'>
                 <label className='register__link register__link_label'>Уже зарегистрированы?</label>
-                <Link to="/sign-in" className="register__link">Войти</Link>
+                <Link to="/sign-in" className="register__link register__link_hover">Войти</Link>
             </div>
 
         </form>

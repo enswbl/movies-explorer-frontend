@@ -131,14 +131,14 @@
 
 @media (max-width: 768px) {
 
-    .about-project__stages  {
+    .about-project__stages {
         margin: 0 0 90px 0;
     }
 }
 
 @media (max-width: 460px) {
 
-    .about-project__stages  {
+    .about-project__stages {
         grid-row-gap: 10px;
         margin: 0 0 70px 0;
     }
@@ -164,7 +164,7 @@
 
 @media (max-width: 460px) {
 
-    .about-project__stages-title  {
+    .about-project__stages-title {
         font-size: 11px;
         line-height: 13px;
     }
@@ -192,7 +192,7 @@
 
 @media (max-width: 460px) {
 
-    .about-project__stages-paragraph   {
+    .about-project__stages-paragraph {
         font-size: 11px;
         line-height: 13px;
     }

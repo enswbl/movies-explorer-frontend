@@ -10,21 +10,22 @@ const Portfolio = () => {
 
                 <div className="portfolio__container">
 
-                    <div className="portfolio__container2">
-                        <a href="" className="portfolio__link">Статичный сайт</a>
-                        <a href="" className="portfolio__symbol">↗</a>
+                    <div className="portfolio__element">
+                        <a href="https://github.com/enswbl/how-to-learn" className="portfolio__link">Статичный сайт</a>
+                        <a href="https://github.com/enswbl/how-to-learn" className="portfolio__symbol">↗</a>
                     </div>
 
-
-                    <div className="portfolio__container2">
-                        <a href="" className="portfolio__link">Адаптивный сайт</a>
-                        <a href="" className="portfolio__symbol">↗</a>
+                    <div className="portfolio__element">
+                        <a href="https://github.com/enswbl/russian-travel" className="portfolio__link">Адаптивный
+                            сайт</a>
+                        <a href="https://github.com/enswbl/russian-travel" className="portfolio__symbol">↗</a>
                     </div>
 
-                    <div className="portfolio__container2">
+                    <div className="portfolio__element">
 
-                        <a href="" className="portfolio__link">Одностраничное приложение</a>
-                        <a href="" className="portfolio__symbol">↗</a>
+                        <a href="https://mestoapp.nomoredomains.club" className="portfolio__link">Одностраничное
+                            приложение</a>
+                        <a href="https://mestoapp.nomoredomains.club" className="portfolio__symbol">↗</a>
                     </div>
 
                 </div>

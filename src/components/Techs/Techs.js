@@ -11,7 +11,8 @@ const Techs = ({myRef}) => {
 
                 <h1 className="techs__subtitle">7 технологий</h1>
 
-                <p className="techs__paragraph">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
+                <p className="techs__paragraph">На курсе веб-разработки мы освоили технологии, которые применили в
+                    дипломном проекте.</p>
 
                 <nav className="techs__nav">
                     <p className="techs__link">HTML</p>

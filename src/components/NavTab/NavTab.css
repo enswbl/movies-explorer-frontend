@@ -44,10 +44,15 @@
     border-radius: 6px;
     text-decoration: inherit;
     border: none;
+    cursor: pointer;
 }
 
 .navtab__link:nth-child(1) {
     margin-left: 0;
+}
+
+.navtab__link:hover {
+    opacity: 0.8;
 }
 
 @media (max-width: 460px) {

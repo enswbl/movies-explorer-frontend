@@ -7,19 +7,17 @@ const SearchForm = () => {
             <div className='search-form'>
 
                 <input
-               /*     onChange={handleChange}
-                       value={userData.name}*/
-                       id="search-form"
-                       name="search-form"
-                       className="search-form__input"
-                       type='text'
-                       minLength='2'
-                       maxLength='40'
-                       placeholder="Фильм"
+                    /*     onChange={handleChange}
+                            value={userData.name}*/
+                    id="search-form"
+                    name="search-form"
+                    className="search-form__input"
+                    type='text'
+                    minLength='2'
+                    maxLength='40'
+                    placeholder="Фильм"
                     /*autoComplete='off'*/
-                       required/>
-
-
+                    required/>
 
                 <button className='search-form__button'>Найти</button>
 

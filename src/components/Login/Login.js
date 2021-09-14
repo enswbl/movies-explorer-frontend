@@ -22,7 +22,9 @@ const Login = ({handleLogin}) => {
     return ((
         <>
             <form action='#' method='GET' onSubmit={handleSubmit} className="register">
-                <img src={Logo} alt='Логотип' className='register__logo'/>
+
+                <a href="/"><img src={Logo} alt='Логотип' className='register__logo'/></a>
+
                 <h1 className='register__title'>Рады видеть!</h1>
 
                 <label className='register__label'>E-mail</label>
@@ -55,7 +57,7 @@ const Login = ({handleLogin}) => {
 
                 <div className='register__container'>
                     <label className='register__link register__link_label'>Ещё не зарегистрированы?</label>
-                    <Link to="/sign-up" className="register__link">Регистрация</Link>
+                    <Link to="/sign-up" className="register__link register__link_hover">Регистрация</Link>
                 </div>
 
             </form>

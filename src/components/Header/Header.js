@@ -40,14 +40,16 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
                         isOpen ?
                             <>
                                 <div className="header__background">
-                                <div className="header__menu">
-                                <button onClick={useSetIsClose} className="header__button_close"><img src={close} className="header__img_close"/></button>
-                                <Navigation isOpen={isOpen}/>
+                                    <div className="header__menu">
+                                        <button onClick={useSetIsClose} className="header__button_close"><img
+                                            className="header__img_close" src={close} alt="#"/></button>
+                                        <Navigation isOpen={isOpen}/>
                                     </div>
                                 </div>
                             </>
                             :
-                            <button onClick={useSetIsOpen} className="header__button_menu"><img src={menu} className="header__img_menu"/></button>
+                            <button onClick={useSetIsOpen} className="header__button_menu"><img
+                                className="header__img_menu" src={menu} alt="#"/></button>
                     }
                 </>
                 }
@@ -80,7 +82,7 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
 
                     <div className="header__account">
                         <Link className='header__button' to="/profile">Аккаунт</Link>
-                        <button className="header__button_account"><img src={account}/></button>
+                        <a href="/" className="header__button_account"><img src={account} alt="#"/></a>
                     </div>
                 </>
                 }
@@ -88,9 +90,11 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
 
             }
 
-            {currentPath === '/sign-up' || currentPath === '/sign-in' || currentPath === '/404' &&
-            <>
-            </>
+            {(currentPath === '/sign-up' || currentPath === '/sign-in' || currentPath === '/404') &&
+            (
+                <>
+                </>
+            )
             }
         </header>
     ));

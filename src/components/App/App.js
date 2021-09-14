@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, {useRef} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import './App.css';
 import Register from "../Register/Register";
@@ -15,6 +15,7 @@ import AboutMe from "../AboutMe/AboutMe";
 import Portfolio from "../Portfolio/Portfolio";
 import NavTab from "../NavTab/NavTab";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
 /*
 import Preloader from "../Preloader/Preloader";;*/
 import {CurrentUserContext} from '../../contexts/CurrentUserContext'
@@ -96,7 +97,7 @@ function App() {
                             exact
                             path='/'>
                             <Promo/>
-                            <NavTab section1Ref={section1Ref} section2Ref={section2Ref} section3Ref={section3Ref} />
+                            <NavTab section1Ref={section1Ref} section2Ref={section2Ref} section3Ref={section3Ref}/>
                             <AboutProject myRef={section1Ref}/>
                             <Techs myRef={section2Ref}/>
                             <AboutMe myRef={section3Ref}/>
@@ -104,19 +105,15 @@ function App() {
                         </Route>
 
                         <Route path='/movies'>
-                        <SearchForm/>
-                        <FilterCheckbox/>
-                            {/*                               
+                            <SearchForm/>
+                            <FilterCheckbox/>
                             <MoviesCardList/>
-                            <MoviesCard/>*/}
                         </Route>
 
                         <Route path='/saved-movies'>
                             <SearchForm/>
                             <FilterCheckbox/>
-                            {/*                               
                             <MoviesCardList/>
-                            <MoviesCard/>*/}
                         </Route>
 
                         <Route path='/profile'>

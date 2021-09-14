@@ -42,12 +42,17 @@
     justify-content: center;
 }
 
-.portfolio__container2 {
+.portfolio__element {
     display: flex;
     justify-content: space-between;
     margin: 0 0 20px 0;
     border-bottom: 1px solid #E8E8E8;
     padding-bottom: 19px;
+    cursor: pointer;
+}
+
+.portfolio__element:hover {
+    opacity: 0.7;
 }
 
 .portfolio__symbol {

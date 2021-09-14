@@ -58,7 +58,7 @@ const Navigation = ({isOpen}) => {
 
                     <div className="header__account header__account_nav">
                         <Link className='header__button' to="/profile">Аккаунт</Link>
-                        <button className="navigation__button_account"><img src={account}/></button>
+                        <a href="/" className="navigation__button_account"><img src={account} alt="#"/></a>
                     </div>
                 </div>
 
