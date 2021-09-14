@@ -1,0 +1,199 @@
+.about-project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 70px 0;
+}
+
+@media (max-width: 768px) {
+
+    .about-project {
+        margin: 0 50px 0;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .about-project {
+        margin: 0 18px 0;
+    }
+}
+
+.about-project__title {
+    margin: 110px 0 70px 0;
+    padding-bottom: 23px;
+    font-size: 22px;
+    line-height: 27px;
+    font-weight: normal;
+    letter-spacing: -0.04em;
+    border-bottom: 1px solid #000000;
+}
+
+@media (max-width: 460px) {
+
+    .about-project__title {
+        font-size: 18px;
+        line-height: 22px;
+        padding-bottom: 28px;
+        margin: 70px 0 60px 0;
+    }
+}
+
+.about-project__description {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 40px;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 110px 0;
+}
+
+@media (max-width: 768px) {
+
+    .about-project__description {
+        grid-column-gap: 30px;
+        margin: 0 auto 94px 0;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .about-project__description {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-row-gap: 56px;
+
+        margin: 0 auto 60px;
+    }
+}
+
+.about-project__description-title {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: normal;
+    letter-spacing: -0.04em;
+    margin: 0 0 26px;
+}
+
+@media (max-width: 768px) {
+
+    .about-project__description-title {
+        margin: 0 0 22px;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .about-project__description-title {
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0 0 16px;
+    }
+}
+
+.about-project__description-paragraph {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+
+    .about-project__description-paragraph {
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .about-project__description-paragraph {
+        font-size: 11px;
+        line-height: 16px;
+    }
+}
+
+.about-project__stages {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 14px;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 0 110px 0;
+}
+
+@media (max-width: 768px) {
+
+    .about-project__stages {
+        margin: 0 0 90px 0;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .about-project__stages {
+        grid-row-gap: 10px;
+        margin: 0 0 70px 0;
+    }
+}
+
+.about-project__stages-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+
+
+    height: 36px;
+
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+}
+
+@media (max-width: 460px) {
+
+    .about-project__stages-title {
+        font-size: 11px;
+        line-height: 13px;
+    }
+}
+
+.about-project__stages-title:nth-child(2) {
+    color: #000000;
+    background-color: #F2F2F2;
+}
+
+.about-project__stages-paragraph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+
+    font-family: 'Suisse', Arial, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #A0A0A0;
+}
+
+@media (max-width: 460px) {
+
+    .about-project__stages-paragraph {
+        font-size: 11px;
+        line-height: 13px;
+    }
+}

@@ -1,0 +1,94 @@
+.filter-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto 0;
+    padding-bottom: 39px;
+    border-bottom: 1px solid #E8E8E8;
+
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+
+@media (max-width: 460px) {
+
+    .filter-checkbox {
+        font-size: 11px;
+        line-height: 18px;
+
+        margin: 44px auto 0;
+        padding-bottom: 43px;
+    }
+}
+
+.filter-checkbox__checkbox {
+    display: inline-block;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.filter-checkbox__checkbox i {
+    position: relative;
+    display: inline-block;
+    margin-right: 12px;
+    width: 36px;
+    height: 20px;
+    box-shadow: 0px 4px 4px rgba(50, 50, 71, 0.08), 0px 4px 8px rgba(50, 50, 71, 0.06);
+    border-radius: 16px;
+    vertical-align: text-bottom;
+    transition: all 0.3s linear;
+}
+
+.filter-checkbox__checkbox i::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 36px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    /* transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1); */
+    transition: all 0.25s linear;
+}
+
+.filter-checkbox__checkbox i::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+    transform: translate3d(2px, 2px, 0);
+    transition: all 0.2s ease-in-out;
+}
+
+/* .filter-checkbox__checkbox:active i::after {
+  width: 28px;
+  transform: translate3d(2px, 2px, 0);
+} */
+
+.filter-checkbox__checkbox:active input:checked + i::after {
+    transform: translate3d(12px, 2px, 0);
+}
+
+.filter-checkbox__checkbox input {
+    display: none;
+}
+
+.filter-checkbox__checkbox input:checked + i {
+    background-color: #000;
+}
+
+.filter-checkbox__checkbox input:checked + i::before {
+    transform: translate3d(14px, 2px, 0) scale3d(0, 0, 0);
+}
+
+.filter-checkbox__checkbox input:checked + i::after {
+    transform: translate3d(18px, 2px, 0);
+    background-color: #fff;
+}
