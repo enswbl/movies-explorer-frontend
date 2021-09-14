@@ -42,14 +42,14 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
                                 <div className="header__background">
                                     <div className="header__menu">
                                         <button onClick={useSetIsClose} className="header__button_close"><img
-                                            className="header__img_close" src={close} alt="#"/></button>
+                                            className="header__img_close" src={close} alt="Закрыть"/></button>
                                         <Navigation isOpen={isOpen}/>
                                     </div>
                                 </div>
                             </>
                             :
                             <button onClick={useSetIsOpen} className="header__button_menu"><img
-                                className="header__img_menu" src={menu} alt="#"/></button>
+                                className="header__img_menu" src={menu} alt="Меню"/></button>
                     }
                 </>
                 }
@@ -82,7 +82,7 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
 
                     <div className="header__account">
                         <Link className='header__button' to="/profile">Аккаунт</Link>
-                        <a href="/" className="header__button_account"><img src={account} alt="#"/></a>
+                        <a href="/" className="header__button_account"><img src={account} alt="Аккаунт"/></a>
                     </div>
                 </>
                 }

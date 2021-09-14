@@ -32,12 +32,15 @@
 .register__logo {
     max-width: 38px;
     max-height: 38px;
+}
+
+.register__logo-link {
     margin: 70px 0 40px 0;
 }
 
 @media (max-width: 460px) {
 
-    .register__logo {
+    .register__logo-link {
         margin: 56px auto 50px;
     }
 }

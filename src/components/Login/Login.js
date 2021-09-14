@@ -23,7 +23,7 @@ const Login = ({handleLogin}) => {
         <>
             <form action='#' method='GET' onSubmit={handleSubmit} className="register">
 
-                <a href="/"><img src={Logo} alt='Логотип' className='register__logo'/></a>
+                <a href="/" className='register__logo-link'><img src={Logo} alt='Логотип' className='register__logo'/></a>
 
                 <h1 className='register__title'>Рады видеть!</h1>
 

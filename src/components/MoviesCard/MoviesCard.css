@@ -87,4 +87,21 @@
     border: none;
     padding: 0;
     cursor: pointer;
+    background-image: url(../../images/inactive-like.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.movies-card__button_active {
+    background-image: url(../../images/active-like.svg) !important;
+}
+
+.movies-card__button_hover-active:hover {
+    background-image: url(../../images/active-like.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.movies-card__button_hover-remove:hover {
+    background-image: url(../../images/remove-like.svg) !important;
 }
