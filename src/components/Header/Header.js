@@ -19,7 +19,7 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
 
             {currentPath === '/' &&
             <>
-                <a href='/'><img src={logo} alt='Логотип' className='header__logo'/></a>
+                <Link to='/'><img src={logo} alt='Логотип' className='header__logo'/></Link>
                 <div>
                     <Link className='header__button' to="/sign-up">Регистрация</Link>
                     <Link className='header__button header__button_sign-in' to="/sign-in">Войти</Link>
@@ -34,7 +34,7 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
                 {(width <= 768) &&
 
                 <>
-                    <a href='/'><img src={logo} alt='Логотип' className='header__logo'/></a>
+                    <Link to='/'><img src={logo} alt='Логотип' className='header__logo'/></Link>
 
                     {
                         isOpen ?
@@ -57,7 +57,7 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
                 {(width > 768) &&
                 <>
 
-                    <a href='/'><img src={logo} alt='Логотип' className='header__logo'/></a>
+                    <Link to='/'><img src={logo} alt='Логотип' className='header__logo'/></Link>
                     <div>
 
                         {
@@ -82,7 +82,7 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
 
                     <div className="header__account">
                         <Link className='header__button' to="/profile">Аккаунт</Link>
-                        <a href="/" className="header__button_account"><img src={account} alt="Аккаунт"/></a>
+                        <Link to="/profile" className="header__button_account"><img src={account} alt="Аккаунт"/></Link>
                     </div>
                 </>
                 }

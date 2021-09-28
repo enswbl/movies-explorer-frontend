@@ -103,5 +103,5 @@
 }
 
 .movies-card__button_hover-remove:hover {
-    background-image: url(../../images/remove-like.svg) !important;
+    background-image: url(../../images/unset-like.svg) !important;
 }

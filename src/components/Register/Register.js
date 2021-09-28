@@ -23,7 +23,7 @@ function Register({handleRegister}) {
 
         <form action='#' method='GET' onSubmit={handleSubmit} className="register">
 
-            <a href='/' className='register__logo-link'><img src={Logo} alt='Логотип' className='register__logo'/></a>
+            <Link to='/' className='register__logo-link'><img src={Logo} alt='Логотип' className='register__logo'/></Link>
 
             <h1 className='register__title'>Добро пожаловать!</h1>
 

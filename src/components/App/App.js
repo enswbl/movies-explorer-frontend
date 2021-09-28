@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, useHistory, useLocation} from 'react-router-dom';
 import './App.css';
 import Register from "../Register/Register";
 import Login from "../Login/Login";
@@ -7,24 +7,19 @@ import NotFoundError from "../NotFoundError/NotFoundError";
 import Profile from "../Profile/Profile";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import Promo from "../Promo/Promo";
-import SearchForm from "../SearchForm/SearchForm";
-import AboutProject from "../AboutProject/AboutProject";
-import Techs from "../Techs/Techs";
-import AboutMe from "../AboutMe/AboutMe";
-import Portfolio from "../Portfolio/Portfolio";
-import NavTab from "../NavTab/NavTab";
-import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
-import MoviesCardList from "../MoviesCardList/MoviesCardList";
-/*
-import Preloader from "../Preloader/Preloader";;*/
+import Preloader from "../Preloader/Preloader";
+import Movies from "../Movies/Movies";
 import {CurrentUserContext} from '../../contexts/CurrentUserContext'
+import moviesApi from '../../utils/MoviesApi';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import Main from "../Main/Main";
+
+import * as MainApi from '../../utils/MainApi';
 
 function App() {
 
-    const section1Ref = useRef(null);
-    const section2Ref = useRef(null);
-    const section3Ref = useRef(null);
+    const location = useLocation();
+    const currentPath = location.pathname;
 
     const [currentUser, setCurrentUserState] = React.useState({
         name: '',
@@ -34,7 +29,7 @@ function App() {
     const [userData, setUserData] = React.useState({})
 
 
-    const [loggedIn, setLoggedIn] = React.useState(true)
+    const [loggedIn, setLoggedIn] = React.useState()
 
     const [isOpen, setIsOpen] = React.useState({isOpen: false})
 
@@ -46,41 +41,99 @@ function App() {
         setIsOpen({isOpen: false})
     }
 
-    /*    const handleLogin = ({email, password}) => {
-            return Auth.authorize({email, password})
+    const history = useHistory();
+
+    const tokenCheck = () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            MainApi.getUserData(token)
                 .then((res) => {
-                    if (res.user.token) {
-
-                        setLoggedIn(true)
-                        localStorage.setItem('token', res.user.token)
-
-                        setTimeout(() => {
-                            history.push('/users/me')
-                        }, 2000)
-                        return res;
+                    if (res) {
+                        setLoggedIn(true);
+                        history.push('/movies');
+                        // setUserData({email: res.user.email})
                     }
                 })
-                .catch(() => {
-                    console.log('Error!');
-                })
-        }*/
+                .catch((err) => {
+                    console.log("Something is Wrong:", err);
+                });
+            return token;
+        }
+    }
 
-    /*    const handleRegister = ({name, email, password}) => {
-            return Auth.register({name, email, password})
-                .then((res) => {
-                    if (res.user.email === email) {
+    const [currentCards, setCurrentCardsState] = React.useState([]);
+    
+    React.useEffect(() => {
+        const token = tokenCheck();
 
-                        setStatus(true)
-                        setShowStatus({isOpen: true})
+        moviesApi.getInitialMovies(token)
+            .then((res) => {
+            //     console.log('RES getInitialCards ===', res)
+            // })
+            
+                setCurrentCardsState(res)
+            })
+            .catch((err) => {
+                console.log("Something is Wrong:", err);
+            });
+        
+        // api.getUserInfo(token)
+        //     .then((res) => {
+        //         setCurrentUserState(res.user)
+        //     })
+        //     .catch((err) => {
+        //         console.log("Something is Wrong:", err);
+        //     });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [loggedIn])
 
-                        return res;
-                    }
-                }).catch(() => {
-                    setStatus(false)
-                    setShowStatus({isOpen: true})
-                })
-        }*/
+    React.useEffect(() => {
+        tokenCheck()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [loggedIn])
 
+    React.useEffect(() => {
+        if (loggedIn) {
+            history.push('/movies');
+        }
+    }, [history, loggedIn])
+
+    const handleRegister = ({name, email, password}) => {
+        return MainApi.register({name, email, password})
+            .then((res) => {
+                // console.log('RES REGISTER ===', res)
+                if (res.user.email === email) {
+
+                    // setStatus(true)
+                    // setShowStatus({isOpen: true})
+
+                    return res;
+                }
+            }).catch(() => {
+                // setStatus(false)
+                // setShowStatus({isOpen: true})
+            })
+    };
+
+    const handleLogin = ({email, password}) => {
+        return MainApi.authorize({email, password})
+            .then((res) => {
+                //  console.log('RES LOGIN ===', res)
+                if (res.user.token) {
+
+                    setLoggedIn(true)
+                    localStorage.setItem('token', res.user.token)
+
+                    setTimeout(() => {
+                        history.push('/movies')
+                    }, 2000)
+                    return res;
+                }
+            })
+            .catch(() => {
+                console.log('Error!');
+            })
+    }
 
     return ((
         <>
@@ -89,54 +142,48 @@ function App() {
 
                 <Header isOpen={isOpen.isOpen} useSetIsOpen={useSetIsOpen} useSetIsClose={useSetIsClose}/>
 
-                <main>
+                <Switch>
 
-                    <Switch>
+                    <Route exact path='/'>
+                        <Main
+                        
+                        />
+                    </Route>
 
-                        <Route
-                            exact
-                            path='/'>
-                            <Promo/>
-                            <NavTab section1Ref={section1Ref} section2Ref={section2Ref} section3Ref={section3Ref}/>
-                            <AboutProject myRef={section1Ref}/>
-                            <Techs myRef={section2Ref}/>
-                            <AboutMe myRef={section3Ref}/>
-                            <Portfolio/>
-                        </Route>
+                    <Route exact path='/sign-up'>
+                        <Register handleRegister={handleRegister}/>
+                    </Route>
 
-                        <Route path='/movies'>
-                            <SearchForm/>
-                            <FilterCheckbox/>
-                            <MoviesCardList/>
-                        </Route>
+                    <Route path='/sign-in'>
+                        <Login handleLogin={handleLogin}/>
+                    </Route>
 
-                        <Route path='/saved-movies'>
-                            <SearchForm/>
-                            <FilterCheckbox/>
-                            <MoviesCardList/>
-                        </Route>
+                    <ProtectedRoute  path="/profile"
+                        component={Profile}
+                        loggedIn={loggedIn}
+                    />
 
-                        <Route path='/profile'>
-                            <Profile/>
-                        </Route>
+                    <ProtectedRoute path='/movies'
+                        component={Movies}
+                        loggedIn={loggedIn}
+                        currentCards={currentCards}
+                        setMovieLike={MainApi.setMovieLike}
+                        unsetMovieLike={MainApi.unsetMovieLike}
+                    /> 
 
-                        <Route path='/sign-up'>
-                            <Register/>
-                        </Route>
+                    <ProtectedRoute  path='/saved-movies'
+                        component={Movies}
+                        loggedIn={loggedIn}
+                        currentCards={currentCards}
+                    />
 
-                        <Route path='/sign-in'>
-                            <Login/>
-                        </Route>
+                    <Route path="/">
+                        <NotFoundError/>
+                    </Route>
 
-                        <Route path='/404'>
-                            <NotFoundError/>
-                        </Route>
+                </Switch>
 
-                    </Switch>
-
-                </main>
-
-                {loggedIn && <Footer/>}
+                <Footer/>
 
             </CurrentUserContext.Provider>
         </>
