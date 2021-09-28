@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {Route, Switch, useHistory, useLocation} from 'react-router-dom';
 import './App.css';
 import Register from "../Register/Register";
@@ -55,34 +55,31 @@ function App() {
                     }
                 })
                 .catch((err) => {
-                    console.log("Something is Wrong:", err);
+                    console.log("Error:", err);
                 });
             return token;
         }
     }
 
     const [currentCards, setCurrentCardsState] = React.useState([]);
-    
+
     React.useEffect(() => {
         const token = tokenCheck();
 
         moviesApi.getInitialMovies(token)
             .then((res) => {
-            //     console.log('RES getInitialCards ===', res)
-            // })
-            
                 setCurrentCardsState(res)
             })
             .catch((err) => {
-                console.log("Something is Wrong:", err);
+                console.log("Error:", err);
             });
-        
+
         // api.getUserInfo(token)
         //     .then((res) => {
         //         setCurrentUserState(res.user)
         //     })
         //     .catch((err) => {
-        //         console.log("Something is Wrong:", err);
+        //         console.log("Error:", err);
         //     });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loggedIn])
@@ -101,24 +98,33 @@ function App() {
     const handleRegister = ({name, email, password}) => {
         return MainApi.register({name, email, password})
             .then((res) => {
-                // console.log('RES REGISTER ===', res)
                 if (res.user.email === email) {
+                    MainApi.authorize({email, password})
+                        .then((res) => {
+                            if (res.user.token) {
 
-                    // setStatus(true)
-                    // setShowStatus({isOpen: true})
+                                setLoggedIn(true)
+                                localStorage.setItem('token', res.user.token)
 
+                                setTimeout(() => {
+                                    history.push('/movies')
+                                }, 2000)
+                                return res;
+                            }
+                        })
+                        .catch((err) => {
+                            console.log('Error:', err);
+                        })
                     return res;
                 }
-            }).catch(() => {
-                // setStatus(false)
-                // setShowStatus({isOpen: true})
+            }).catch((err) => {
+                console.log('Error:', err);
             })
     };
 
     const handleLogin = ({email, password}) => {
         return MainApi.authorize({email, password})
             .then((res) => {
-                //  console.log('RES LOGIN ===', res)
                 if (res.user.token) {
 
                     setLoggedIn(true)
@@ -130,8 +136,8 @@ function App() {
                     return res;
                 }
             })
-            .catch(() => {
-                console.log('Error!');
+            .catch((err) => {
+                console.log('Error:', err);
             })
     }
 
@@ -140,13 +146,14 @@ function App() {
             <CurrentUserContext.Provider value={currentUser}>
                 {/* <Preloader/> */}
 
-                <Header isOpen={isOpen.isOpen} useSetIsOpen={useSetIsOpen} useSetIsClose={useSetIsClose}/>
+                <Header isOpen={isOpen.isOpen} useSetIsOpen={useSetIsOpen} useSetIsClose={useSetIsClose}
+                        loggedIn={loggedIn}/>
 
                 <Switch>
 
                     <Route exact path='/'>
                         <Main
-                        
+
                         />
                     </Route>
 
@@ -158,26 +165,25 @@ function App() {
                         <Login handleLogin={handleLogin}/>
                     </Route>
 
-                    <ProtectedRoute  path="/profile"
-                        component={Profile}
-                        loggedIn={loggedIn}
+                    <ProtectedRoute path="/profile"
+                                    component={Profile}
+                                    loggedIn={loggedIn}
                     />
 
                     <ProtectedRoute path='/movies'
-                        component={Movies}
-                        loggedIn={loggedIn}
-                        currentCards={currentCards}
-                        setMovieLike={MainApi.setMovieLike}
-                        unsetMovieLike={MainApi.unsetMovieLike}
-                    /> 
+                                    component={Movies}
+                                    loggedIn={loggedIn}
+                                    currentCards={currentCards}
 
-                    <ProtectedRoute  path='/saved-movies'
-                        component={Movies}
-                        loggedIn={loggedIn}
-                        currentCards={currentCards}
                     />
 
-                    <Route path="/">
+                    <ProtectedRoute path='/saved-movies'
+                                    component={Movies}
+                                    loggedIn={loggedIn}
+                                    currentCards={currentCards}
+                    />
+
+                    <Route path="*">
                         <NotFoundError/>
                     </Route>
 

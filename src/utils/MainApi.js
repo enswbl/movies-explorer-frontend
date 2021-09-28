@@ -55,7 +55,7 @@ export const getUserData = (token) => {
         })
 };
 
-export const setUserInfo = ({name, description}, jwt) => {
+export const setUserInfo = ({name, email}, jwt) => {
     return fetch(`${BASE_URL}/users/me`, {
         method: "PATCH",
         headers: {
@@ -64,14 +64,14 @@ export const setUserInfo = ({name, description}, jwt) => {
         },
         body: JSON.stringify({
             name: name,
-            about: description
+            email: email
         }),
         credentials: 'include',
     })
-    .then((res) => checkResponse(res))
-    .then((res) => {
-        return res;
-    })
+        .then((res) => checkResponse(res))
+        .then((res) => {
+            return res;
+        })
 }
 
 export const setMovieLike = (item) => {

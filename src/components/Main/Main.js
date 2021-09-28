@@ -9,7 +9,6 @@ import NavTab from "../NavTab/NavTab";
 import React, {useRef} from 'react';
 
 
-
 const Main = () => {
 
     const section1Ref = useRef(null);
@@ -18,17 +17,16 @@ const Main = () => {
 
     return ((
         <>
-                        <main>
+            <main>
+                <Promo/>
+                <NavTab section1Ref={section1Ref} section2Ref={section2Ref} section3Ref={section3Ref}/>
+                <AboutProject myRef={section1Ref}/>
+                <Techs myRef={section2Ref}/>
+                <AboutMe myRef={section3Ref}/>
+                <Portfolio/>
+            </main>
 
-                        <Promo/>
-                        <NavTab section1Ref={section1Ref} section2Ref={section2Ref} section3Ref={section3Ref}/>
-                        <AboutProject myRef={section1Ref}/>
-                        <Techs myRef={section2Ref}/>
-                        <AboutMe myRef={section3Ref}/>
-                        <Portfolio/>
-</main>
 
-                    
         </>
 
     ));

@@ -10,7 +10,6 @@ class MoviesApi {
         return result.json();
     }
 
-
     getInitialMovies(jwt) {
         return fetch(`${this._baseUrl}/beatfilm-movies`, {
             method: "GET",
@@ -32,8 +31,6 @@ class MoviesApi {
             credentials: 'include',
         }).then((result) => this._checkErrors(result));
     }
-
-
 
 }
 

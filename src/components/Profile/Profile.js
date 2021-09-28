@@ -1,7 +1,21 @@
 import React from 'react';
 import {Link, useHistory, withRouter} from 'react-router-dom';
+import {getUserData, setUserInfo} from "../../utils/MainApi";
 
-const Profile = ({handleEdit}) => {
+const Profile = () => {
+
+    React.useEffect(() => {
+        getUserData()
+            .then((res) => {
+                setCurrentUserData(res.user)
+            })
+            .catch((err) => {
+                console.log("Error:", err);
+            });
+    }, [])
+
+    const [currentUser, setCurrentUserData] = React.useState({name: '', email: ''});
+
     const [userData, setUserData] = React.useState({name: '', email: ''});
 
     const handleChange = (e) => {
@@ -14,8 +28,13 @@ const Profile = ({handleEdit}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleEdit(userData)
-
+        setUserInfo(userData)
+            .then((res) => {
+                setCurrentUserData(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     const history = useHistory();
@@ -28,7 +47,7 @@ const Profile = ({handleEdit}) => {
     return ((
         <>
             <form action='#' method='GET' onSubmit={handleSubmit} className="profile">
-                <h1 className='profile__title'>Привет, {'... '}!</h1>
+                <h1 className='profile__title'>Привет, {currentUser.name}!</h1>
 
                 <div className='profile__container'>
 
@@ -45,6 +64,7 @@ const Profile = ({handleEdit}) => {
                            required/>
 
                     <label className='profile__label'>E-mail</label>
+                    {/*<span className='popup__input-error-message profile-name-input-error-message'/>*/}
                     <input onChange={handleChange}
                            value={userData.email}
                            id="email"
@@ -55,6 +75,7 @@ const Profile = ({handleEdit}) => {
                            maxLength='40'
                            autoComplete='off'
                            required/>
+                    {/*<span className='popup__input-error-message profile-name-input-error-message'/>*/}
 
                 </div>
 

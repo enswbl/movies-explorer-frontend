@@ -2,7 +2,7 @@ import React from 'react';
 import MoviesCard from "../MoviesCard/MoviesCard";
 import {Route} from 'react-router-dom';
 
-const MoviesCardList = ({currentCards, setMovieLike, unsetMovieLike}) => {
+const MoviesCardList = ({currentCards}) => {
 
 
     return ((
@@ -11,9 +11,6 @@ const MoviesCardList = ({currentCards, setMovieLike, unsetMovieLike}) => {
 
                 <ul className="movies-card-list__containter">
                     {currentCards.map((item) => (
-
-// console.log('item', item)
-
                         <MoviesCard
                             // duration={item.duration}
                             // image={'https://api.nomoreparties.co' + item.image.url}
@@ -22,9 +19,6 @@ const MoviesCardList = ({currentCards, setMovieLike, unsetMovieLike}) => {
                             // id={item.id}
                             {...item}
                             key={item.id}
-
-                            setMovieLike={setMovieLike}
-                            unsetMovieLike={unsetMovieLike}
                         />
                         ))}
                 </ul>

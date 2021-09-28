@@ -7,7 +7,7 @@ import menu from '../../images/menu.svg'
 import Navigation from "../Navigation/Navigation";
 import close from "../../images/close.svg";
 
-const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
+const Header = ({isOpen, useSetIsOpen, useSetIsClose, loggedIn}) => {
 
     const location = useLocation();
     const currentPath = location.pathname;
@@ -17,14 +17,30 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
     return ((
         <header className='header'>
 
-            {currentPath === '/' &&
-            <>
-                <Link to='/'><img src={logo} alt='Логотип' className='header__logo'/></Link>
-                <div>
-                    <Link className='header__button' to="/sign-up">Регистрация</Link>
-                    <Link className='header__button header__button_sign-in' to="/sign-in">Войти</Link>
-                </div>
-            </>
+            {(currentPath === '/') && (
+                (loggedIn) ?
+                    <>
+                        <Link to='/'><img src={logo} alt='Логотип' className='header__logo'/></Link>
+                        {/*<div> */}
+                        <div>
+                            <Link className='header__button' to="/movies">Фильмы</Link>
+                            <Link className='header__button' to="/saved-movies">Сохранённые фильмы</Link>
+                        </div>
+                        <div className="header__account">
+                            <Link className='header__button' to="/profile">Аккаунт</Link>
+                            <Link to="/profile" className="header__button_account"><img src={account}
+                                                                                        alt="Аккаунт"/></Link>
+                        </div>
+                        {/*</div>*/}
+                    </>
+                    :
+                    <>
+                        <Link to='/'><img src={logo} alt='Логотип' className='header__logo'/></Link>
+                        <div>
+                            <Link className='header__button' to="/sign-up">Регистрация</Link>
+                            <Link className='header__button header__button_sign-in' to="/sign-in">Войти</Link>
+                        </div>
+                    </>)
             }
 
             {(currentPath === '/movies' || currentPath === '/saved-movies' || currentPath === '/profile') &&
@@ -78,10 +94,25 @@ const Header = ({isOpen, useSetIsOpen, useSetIsClose}) => {
                             </>)
 
                         }
+
+                        {
+                            (currentPath === '/profile') &&
+                            (<>
+                                <Link className='header__button' to="/movies">Фильмы</Link>
+                                <Link className='header__button' to="/saved-movies">Сохранённые
+                                    фильмы</Link>
+                            </>)
+
+                        }
+
                     </div>
 
                     <div className="header__account">
-                        <Link className='header__button' to="/profile">Аккаунт</Link>
+                        {currentPath === '/profile' ?
+                            <Link className='header__button' to="/profile" style={{fontWeight: "500"}}>Аккаунт</Link>
+                            :
+                            <Link className='header__button' to="/profile">Аккаунт</Link>
+                        }
                         <Link to="/profile" className="header__button_account"><img src={account} alt="Аккаунт"/></Link>
                     </div>
                 </>
